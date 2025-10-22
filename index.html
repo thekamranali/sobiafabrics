@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sobia Fabrics — Online</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #b0003a;
+            --muted: #6c757d
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+            margin: 0
+        }
+
+        .hero {
+            min-height: 54vh;
+            display: flex;
+            align-items: center
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: #fff;
+            border: 0
+        }
+
+        .product-card {
+            transition: transform .18s ease, box-shadow .18s
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08)
+        }
+
+        .img-zoom {
+            overflow: hidden
+        }
+
+        .img-zoom img {
+            transition: transform .25s ease
+        }
+
+        .img-zoom:hover img {
+            transform: scale(1.18)
+        }
+
+        .price {
+            font-weight: 700
+        }
+
+        .discount-badge {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            background: #ffcf47;
+            padding: .25rem .5rem;
+            border-radius: .35rem;
+            font-weight: 700
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: #fff;
+            border-radius: 50px;
+            padding: .45rem .7rem
+        }
+
+        .social-proof {
+            background: #fff8f0;
+            padding: .45rem;
+            text-align: center;
+            font-size: .9rem
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 2rem 0
+        }
+
+        @media(max-width:576px) {
+            .hero {
+                min-height: 38vh
+            }
+        }
+
+        .popup-offer {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 1050
+        }
+
+        .badge-new {
+            background: var(--accent);
+            color: #fff;
+            padding: .25rem .45rem;
+            border-radius: .35rem;
+            font-size: .75rem
+        }
+
+        .filter-bar .form-select,
+        .filter-bar .form-control {
+            min-width: 120px
+        }
+
+        .video-thumb {
+            height: 220px;
+            object-fit: cover;
+            width: 100%
+        }
+
+        .carousel-inner img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* --- Hero Animation --- */
+        .marquee-container {
+            background: #b0003a;
+            color: #fff;
+            font-weight: 600;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee {
+            display: inline-block;
+            padding-left: 0;
+            animation: scroll 20s linear infinite;
+        }
+
+        .marquee::after {
+            content: attr(data-text);
+            padding-left: 2rem;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .bg-accent {
+            background-color: #b0003a;
+        }
+
+        .footer-offer {
+            animation: slideIn 30s linear infinite;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Animation -->
+    <div class="marquee-container">
+        <div class="marquee"
+            data-text="🎉 Flat 15% OFF on all Cotton & Lawn Fabrics! 🔥 Limited Stock! Order now & grab your favorite fabrics! 🎁 Free COD available in major cities! 💃 Premium fabrics for weddings & casual wear! ✨ New arrivals every week!">
+            🎉 Flat 15% OFF on all Cotton & Lawn Fabrics! 🔥 Limited Stock! Order now & grab your favorite fabrics! 🎁
+            Free COD available in major cities! 💃 Premium fabrics for weddings & casual wear! ✨ New arrivals every
+            week!
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Sobia Fabrics</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#products">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#videos">Video</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item ms-2"><a class="nav-link btn btn-outline-secondary" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-2"><a class="nav-link whatsapp-btn" href="https://wa.me/923143433181"
+                            target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="display-6">Fresh Fabrics — Direct From Our Store</h1>
+                    <p class="lead text-muted">Cotton, Lawn, Linen, Velvet & more. Cash on Delivery available across
+                        Pakistan.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#products" class="btn btn-accent">Shop Fabrics</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center d-none d-md-block">
+                    <img src="https://media.istockphoto.com/id/1356522037/photo/fashion-woman-dancing-in-golden-dress-with-waving-hair-and-flying-silk-fabric-model-in.jpg?s=612x612&w=0&k=20&c=zgQtxTaYLmJbQXABrItQBCsvfjv49czYSwRtf-asGk0="
+                        alt="fabrics" class="img-fluid rounded shadow-sm">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Popup Offer -->
+    <div class="popup-offer card p-3 shadow">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <strong>Limited Time Offer!</strong><br>
+                <small>Get extra 10% off if you order now</small>
+            </div>
+            <button class="btn-close" onclick="this.parentElement.parentElement.style.display='none'"></button>
+        </div>
+        <a href="#products" class="btn btn-accent w-100 mt-2">Order Now</a>
+    </div>
+
+    <!-- Social Proof / Live Purchases -->
+    <section class="social-proof mt-2">
+        <div class="container">
+            <span id="purchaseCounter">So far 1245 people purchased our fabrics!</span>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <h3 class="mb-3">Available Fabrics</h3>
+            <div id="productGrid" class="row g-3">
+                <!-- Products injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Place Order</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="selectedProduct" class="mb-3"></div>
+                    <form id="orderForm" action="https://formspree.io/f/mblkkedo" method="POST">
+                        <input type="hidden" name="product" id="prodName">
+                        <div class="mb-2"><input class="form-control" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="mb-2"><input class="form-control" name="phone" placeholder="Phone number" required>
+                        </div>
+                        <div class="mb-2"><input class="form-control" name="city" placeholder="City / Area" required>
+                        </div>
+                        <div class="mb-2"><textarea class="form-control" name="address" placeholder="Full address"
+                                required></textarea></div>
+                        <button class="btn btn-accent w-100" type="submit">Submit Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-4 bg-dark text-white position-relative overflow-hidden">
+        <div class="footer-offer py-2 bg-accent text-white text-center position-absolute w-100" style="top:0; left:0;">
+            🎉 Limited Time Offer: Flat 10% OFF on all orders above PKR 2000! 🛍️ Grab your favorite fabrics now!
+        </div>
+
+        <div class="container text-center py-5" style="position: relative; z-index: 1;">
+            <h5 class="mb-3">Stay Connected</h5>
+            <p class="mb-1">© Sobia Fabrics — Built with ❤️</p>
+            <p class="mb-0">
+                <a class="text-white text-decoration-none mx-2" href="https://wa.me/923143433181"
+                    target="_blank">WhatsApp</a> |
+                <a class="text-white text-decoration-none mx-2" href="mailto:info@sobiafabrics.com">Email</a> |
+                <a class="text-white text-decoration-none mx-2" href="#contact">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: 'Premium Lawn Suit Green',
+                type: 'Lawn',
+                price: 1299,
+                imgs: [
+                    'https://sobianazir.net/cdn/shop/products/13B-_1_1080x.jpg?v=1677666569',
+                    'https://sobianazir.net/cdn/shop/products/13B-_2_1080x.jpg?v=1677666569'
+                ],
+                desc: 'Light & breathable, perfect for summers',
+                new: true,
+                sale: 15
+            },
+            {
+                id: 2,
+                name: 'Classic Cotton Pink',
+                type: 'Cotton',
+                price: 899,
+                imgs: [
+                    'https://sobianazir.net/cdn/shop/products/10B-_2_400x.jpg?v=1677666161',
+                    'https://sobianazir.net/cdn/shop/products/10B-_2_400x.jpg?v=1677666161'
+                ],
+                desc: 'Durable everyday fabric'
+            },
+            {
+                id: 3,
+                name: 'Linen Elegance Red',
+                type: 'Linen',
+                price: 1599,
+                imgs: [
+                    'https://i.postimg.cc/g2cdXgfZ/AI2A2635-1024x1024.webp',
+                    'https://i.postimg.cc/g2cdXgfZ/AI2A2635-1024x1024.webp'
+                ],
+                desc: 'Soft, premium linen for semi-formal wear',
+                sale: 10
+            }, {
+                id: 1,
+                name: 'Premium Lawn Suit Green',
+                type: 'Lawn',
+                price: 1299,
+                imgs: [
+                    'https://sobianazir.net/cdn/shop/products/13B-_1_1080x.jpg?v=1677666569',
+                    'https://sobianazir.net/cdn/shop/products/13B-_2_1080x.jpg?v=1677666569'
+                ],
+                desc: 'Light & breathable, perfect for summers',
+                new: true,
+                sale: 15
+            },
+            {
+                id: 2,
+                name: 'Classic Cotton Pink',
+                type: 'Cotton',
+                price: 899,
+                imgs: [
+                    'https://sobianazir.net/cdn/shop/products/10B-_2_400x.jpg?v=1677666161',
+                    'https://sobianazir.net/cdn/shop/products/10B-_2_400x.jpg?v=1677666161'
+                ],
+                desc: 'Durable everyday fabric'
+            },
+            {
+                id: 3,
+                name: 'Linen Elegance Red',
+                type: 'Linen',
+                price: 1599,
+                imgs: [
+                    'https://i.postimg.cc/g2cdXgfZ/AI2A2635-1024x1024.webp',
+                    'https://i.postimg.cc/g2cdXgfZ/AI2A2635-1024x1024.webp'
+                ],
+                desc: 'Soft, premium linen for semi-formal wear',
+                sale: 10
+            }, {
+                id: 1,
+                name: 'Premium Lawn Suit Green',
+                type: 'Lawn',
+                price: 1299,
+                imgs: [
+                    'https://sobianazir.net/cdn/shop/products/13B-_1_1080x.jpg?v=1677666569',
+                    'https://sobianazir.net/cdn/shop/products/13B-_2_1080x.jpg?v=1677666569'
+                ],
+                desc: 'Light & breathable, perfect for summers',
+                new: true,
+                sale: 15
+            },
+            {
+                id: 2,
+                name: 'Classic Cotton Pink',
+                type: 'Cotton',
+                price: 899,
+                imgs: [
+                    'https://sobianazir.net/cdn/shop/products/10B-_2_400x.jpg?v=1677666161',
+                    'https://sobianazir.net/cdn/shop/products/10B-_2_400x.jpg?v=1677666161'
+                ],
+                desc: 'Durable everyday fabric'
+            },
+            {
+                id: 3,
+                name: 'Linen Elegance Red',
+                type: 'Linen',
+                price: 1599,
+                imgs: [
+                    'https://i.postimg.cc/g2cdXgfZ/AI2A2635-1024x1024.webp',
+                    'https://i.postimg.cc/g2cdXgfZ/AI2A2635-1024x1024.webp'
+                ],
+                desc: 'Soft, premium linen for semi-formal wear',
+                sale: 10
+            }, {
+                id: 1,
+                name: 'Premium Lawn Suit Green',
+                type: 'Lawn',
+                price: 1299,
+                imgs: [
+                    'https://sobianazir.net/cdn/shop/products/13B-_1_1080x.jpg?v=1677666569',
+                    'https://sobianazir.net/cdn/shop/products/13B-_2_1080x.jpg?v=1677666569'
+                ],
+                desc: 'Light & breathable, perfect for summers',
+                new: true,
+                sale: 15
+            },
+            {
+                id: 2,
+                name: 'Classic Cotton Pink',
+                type: 'Cotton',
+                price: 899,
+                imgs: [
+                    'https://sobianazir.net/cdn/shop/products/10B-_2_400x.jpg?v=1677666161',
+                    'https://sobianazir.net/cdn/shop/products/10B-_2_400x.jpg?v=1677666161'
+                ],
+                desc: 'Durable everyday fabric'
+            },
+            {
+                id: 3,
+                name: 'Linen Elegance Red',
+                type: 'Linen',
+                price: 1599,
+                imgs: [
+                    'https://i.postimg.cc/g2cdXgfZ/AI2A2635-1024x1024.webp',
+                    'https://i.postimg.cc/g2cdXgfZ/AI2A2635-1024x1024.webp'
+                ],
+                desc: 'Soft, premium linen for semi-formal wear',
+                sale: 10
+            },
+        ];
+
+        const productGrid = document.getElementById('productGrid');
+
+        function renderProducts(list) {
+            productGrid.innerHTML = '';
+            list.forEach(p => {
+                const col = document.createElement('div');
+                col.className = 'col-sm-6 col-md-4';
+                let carouselId = 'carousel' + p.id;
+                col.innerHTML = `
+          <div class="card product-card position-relative">
+            ${p.new ? '<div class="discount-badge">NEW</div>' : ''}
+            ${p.sale ? '<div class="discount-badge" style="top:45px; left:12px;">-' + p.sale + '%</div>' : ''}
+            <div id="${carouselId}" class="carousel slide img-zoom" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                ${p.imgs.map((img, i) => `<div class="carousel-item ${i === 0 ? 'active' : ''}"><img src="${img}" class="d-block w-100" alt="${p.name}"></div>`).join('')}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#${carouselId}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title mb-1">${p.name}</h5>
+              <div class="text-muted small">${p.type}</div>
+              <p class="mt-2 price">PKR ${p.price}</p>
+              <p class="small text-muted">${p.desc || ''}</p>
+              <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-outline-primary btn-order" data-id="${p.id}">Order Now</button>
+              </div>
+            </div>
+          </div>`;
+                productGrid.appendChild(col);
+            });
+        }
+
+        renderProducts(products);
+
+        // Order Modal
+        let currentProduct = null;
+        productGrid.addEventListener('click', e => {
+            const orderBtn = e.target.closest('.btn-order');
+            if (orderBtn) {
+                const id = Number(orderBtn.dataset.id);
+                currentProduct = products.find(p => p.id === id);
+                document.getElementById('selectedProduct').innerHTML = `
+          <strong>${currentProduct.name}</strong><br>PKR ${currentProduct.price}`;
+                document.getElementById('prodName').value = currentProduct.name;
+                new bootstrap.Modal(document.getElementById('orderModal')).show();
+            }
+        });
+
+        // Live Purchase Counter
+        let counter = 1245;
+        setInterval(() => {
+            counter += Math.floor(Math.random() * 5) + 1;
+            document.getElementById('purchaseCounter').textContent = `So far ${counter} people purchased our fabrics!`;
+        }, 4000);
+    </script>
+</body>
+
+</html>
